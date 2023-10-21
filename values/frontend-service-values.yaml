@@ -1,0 +1,27 @@
+microService:
+  name: "frontend-microservice"
+  replicas: "2"
+  image: "gcr.io/google-samples/microservices-demo/frontend"
+  version: "v0.8.0"
+  port: "8080"
+
+containerEnvVars:
+- name: "PORT"
+  value: "8080"
+- name: "PRODUCT_CATALOG_SERVICE_ADDR"
+  value: "product-catalog-microservice:3550"  
+- name: "CURRENCY_SERVICE_ADDR"
+  value: "currency-microservice:7000"
+- name: "CART_SERVICE_ADDR"
+  value: "cart-microservice:7070"
+- name: "RECOMMENDATION_SERVICE_ADDR"
+  value: "recommendation-microservice:8080"
+- name: "SHIPPING_SERVICE_ADDR"
+  value: "shipping-microservice:50051"
+- name: "CHECKOUT_SERVICE_ADDR"
+  value: "checkout-microservice:5050"
+- name: "AD_SERVICE_ADDR"
+  value: "ad-microservice:9555"
+
+servicePort: "80"
+serviceType: "NodePort"

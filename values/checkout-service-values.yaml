@@ -1,0 +1,25 @@
+microService:
+  name: "checkout-microservice"
+  replicas: "2"
+  image: "gcr.io/google-samples/microservices-demo/checkoutservice"
+  version: "v0.8.0"
+  port: "5050"
+
+containerEnvVars:
+- name: "PORT"
+  value: "5050"
+- name: "EMAIL_SERVICE_ADDR"
+  value: "email-microservice:5000"
+- name: "PAYMENT_SERVICE_ADDR"
+  value: "payment-microservice:50051"
+- name: "SHIPPING_SERVICE_ADDR"
+  value: "shipping-microservice:50051"
+- name: "CURRENCY_SERVICE_ADDR"
+  value: "currency-microservice:7000"
+- name: "PRODUCT_CATALOG_SERVICE_ADDR"
+  value: "product-catalog-microservice:3550"
+- name: "CART_SERVICE_ADDR"
+  value: "cart-microservice:7070"
+
+servicePort: "5050"
+serviceType: "ClusterIP"

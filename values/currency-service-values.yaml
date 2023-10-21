@@ -1,0 +1,17 @@
+microService:
+  name: "currency-microservice"
+  replicas: "2"
+  image: "gcr.io/google-samples/microservices-demo/currencyservice"
+  version: "v0.3.0"
+  port: "7000"
+
+containerEnvVars:
+- name: "PORT"
+  value: "7000"
+- name: DISABLE_PROFILER
+  value: "1"
+- name: DISABLE_DEBUGGER
+  value: "1"
+servicePort: "7000"
+serviceType: "ClusterIP"
+

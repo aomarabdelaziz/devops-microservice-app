@@ -1,0 +1,13 @@
+microService:
+  name: "product-catalog-microservice"
+  replicas: "2"
+  image: "gcr.io/google-samples/microservices-demo/productcatalogservice"
+  version: "v0.8.0"
+  port: "3550"
+
+containerEnvVars:
+- name: "PORT"
+  value: "3550"
+
+servicePort: "3550"
+serviceType: "ClusterIP"

@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  cart-service
+spec:
+  selector:
+    app:  cart-microservice
+  type:  ClusterIP
+  ports:
+  - protocol:  TCP
+    port:  7070
+    targetPort:  7070

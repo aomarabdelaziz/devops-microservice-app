@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  ad-microservice
+spec:
+  selector:
+    matchLabels:
+      app: ad-microservice
+  template:
+    metadata:
+      labels:
+        app: ad-microservice
+    spec:
+      containers:
+      - image:  gcr.io/google-samples/microservices-demo/adservice:v0.8.0
+        name:  ad-microservice-container    
+        imagePullPolicy: Always
+        ports:
+        - containerPort:  9555
+        env:
+          - name: PORT
+            value: "9555"

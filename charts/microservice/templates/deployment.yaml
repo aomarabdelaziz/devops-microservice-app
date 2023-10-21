@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  {{ .Values.microService.name }}
+spec:
+  replicas: {{ .Values.microService.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.microService.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.microService.name }}
+    spec:
+      containers:
+      - name:  {{ .Values.microService.name }}
+        image:  "{{ .Values.microService.image }}:{{ .Values.microService.version }}"
+        imagePullPolicy: Always
+        ports:
+        - containerPort:  {{ .Values.microService.port }}
+        env:
+        {{- range .Values.containerEnvVars }}
+        - name:  {{ .name }}
+          value: {{ .value | quote}}
+        {{- end }}

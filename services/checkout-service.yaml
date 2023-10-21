@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  checkout-service
+spec:
+  selector:
+    app:  checkout-microservice
+  type:  ClusterIP
+  ports:
+  - protocol:  TCP
+    port:  5050
+    targetPort:  5050

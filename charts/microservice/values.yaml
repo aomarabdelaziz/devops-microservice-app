@@ -1,0 +1,12 @@
+microService:
+  name: ""
+  replicas: ""
+  image: ""
+  version: ""
+  port: ""
+containerEnvVars:
+- name: ""
+  value: ""
+
+servicePort: ""
+serviceType: ""

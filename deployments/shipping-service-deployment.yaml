@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  shipping-microservice
+spec:
+  selector:
+    matchLabels:
+      app: shipping-microservice
+  template:
+    metadata:
+      labels:
+        app: shipping-microservice
+    spec:
+      containers:
+      - image:  gcr.io/google-samples/microservices-demo/shippingservice:v0.8.0
+        name:  shipping-microservice-container   
+        imagePullPolicy: Always 
+        ports:
+        - containerPort:  50051
+        env:
+          - name: PORT
+            value: "50051"

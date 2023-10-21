@@ -1,0 +1,13 @@
+microService:
+  name: "email-microservice"
+  replicas: "2"
+  image: "gcr.io/google-samples/microservices-demo/emailservice"
+  version: "v0.8.0"
+  port: "8080"
+
+containerEnvVars:
+- name: "PORT"
+  value: "8080"
+
+servicePort: "5000"
+serviceType: "ClusterIP"

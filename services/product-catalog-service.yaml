@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  product-catalog-service
+spec:
+  selector:
+    app:  product-catalog-microservice
+  type:  ClusterIP
+  ports:
+  - protocol:  TCP
+    port:  3550
+    targetPort:  3550

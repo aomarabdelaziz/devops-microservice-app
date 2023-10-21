@@ -1,0 +1,59 @@
+releases:
+  - name: adservice
+    values:
+     - "values/ad-service.values.yaml"
+    chart: charts/microservice
+     
+  - name: cartservice
+    values:
+     - "values/cart-service-values.yaml"
+    chart: charts/microservice
+     
+  - name: checkoutservice
+    values:
+     - "values/checkout-service-values.yaml"
+    chart: charts/microservice
+
+  - name: currencyservice
+    values:
+     - "values/currency-service-values.yaml"
+    chart: charts/microservice
+
+  - name: emailservice
+    values:
+     - "values/email-service-values.yaml"
+    chart: charts/microservice
+
+  - name: frontendservice
+    values:
+     - "values/frontend-service-values.yaml"
+    chart: charts/microservice
+
+  - name: paymentservice
+    values:
+     - "values/payment-service-values.yaml"
+    chart: charts/microservice
+
+  - name: productcatalogservice
+    values:
+     - "values/product-catalog-service-values.yaml"
+    chart: charts/microservice
+
+  - name: recommendationservice
+    values:
+     - "values/recommendation-service-values.yaml"
+    chart: charts/microservice
+
+  - name: shippingservice
+    values:
+     - "values/shipping-service-values.yaml"
+    chart: charts/microservice
+
+  - name: monitoring
+    namespace: monitoring
+    chart: prometheus-community/kube-prometheus-stack
+
+  - name: redis-exporter
+    values:
+      - "values/redis-exporter-values.yaml" 
+    chart: prometheus-community/prometheus-redis-exporter

@@ -1,0 +1,35 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: main-rules
+  namespace: monitoring
+spec:
+  route:
+    receiver: 'gmail'
+    repeatInterval: 30m
+    routes:
+    - matchers:
+      - name: alertname
+        value: AlertHostHighCpuLoad
+    - matchers:
+      - name: alertname
+        value: KubernetesPodCrashLooping
+      repeatInterval: 10m
+    - matchers:
+      - name: alertname
+        value: RedisDown
+    - matchers:
+      - name: alertname
+        value: RedisTooManyConnections
+  receivers:
+  - name: 'gmail'
+    emailConfigs:
+    - to: 'abdelazizomar851@gmail.com'
+      from: 'abdelazizomar851@gmail.com'
+      authIdentity: 'abdelazizomar851@gmail.com'
+      smarthost: 'smtp.gmail.com:587'
+      authUsername: 'abdelazizomar851@gmail.com'
+      authPassword:
+        name: 'gmail-auth'
+        key: 'password'
+   

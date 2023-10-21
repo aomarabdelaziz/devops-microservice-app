@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  payment-service
+spec:
+  selector:
+    app:  payment-microservice
+  type:  ClusterIP
+  ports:
+  - protocol:  TCP
+    port:  50051
+    targetPort:  50051
